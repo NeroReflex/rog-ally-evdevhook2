@@ -46,6 +46,7 @@ jobs:
       - name: Generate .SRCINFO
         run: |
           su build bash -c "cd /home/build/pkg && makepkg --printsrcinfo > /home/build/pkg/.SRCINFO"
+          sed -i 's/	depends = rog-ally-motion-evdev\n//g' INPUTFILE
       - name: Install dependencies
         run: |
           pacman -Syu --noconfirm $(sed -n -e 's/^[[:space:]]*\(make\)\?depends\(_x86_64\)\? = \([[:alnum:][:punct:]]*\)[[:space:]]*$/\3/p' /home/build/pkg/.SRCINFO)
@@ -53,7 +54,7 @@ jobs:
         id: build-package
         shell: bash
         run: |
-          su build bash -c "cd /home/build/pkg  && MAKEFLAGS=-j$(nproc) makepkg"
+          su build bash -c "cd /home/build/pkg  && MAKEFLAGS=-j$(nproc) makepkg -sf -- --skippgpcheck --noconfirm"
       - name: Set package version
         id: set-pkg-version
         shell: bash
