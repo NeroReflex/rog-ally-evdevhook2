@@ -1,0 +1,7 @@
+*.tar*
+/pkg
+/src
+/evdevhook2
+/gcemuhook
+*.patch
+*.asc
