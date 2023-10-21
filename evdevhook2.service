@@ -10,4 +10,4 @@ WorkingDirectory=/usr/bin/
 ExecStart=/usr/bin/evdevhook2
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

@@ -1,0 +1,27 @@
+pkgbase = rog-ally-evdevhook2
+	pkgdesc = Cemuhook UDP server for devices with modern Linux drivers
+	pkgver = 1.0.1.r1.g3635e5a
+	pkgrel = 1
+	url = https://github.com/v1993/evdevhook2
+	arch = x86_64
+	license = GPL3
+	makedepends = git
+	makedepends = meson
+	makedepends = vala
+	depends = glib2
+	depends = zlib
+	depends = libudev.so
+	depends = libevdev.so
+	depends = libgee-0.8.so
+	depends = rog-ally-motion-evdev
+	optdepends = upower: battery status reporting
+	provides = evdevhook2
+	conflicts = evdevhook2
+	source = evdevhook2::git+https://github.com/v1993/evdevhook2.git
+	source = evdevhook2.service
+	source = rog-ally-bmi323.patch
+	b2sums = SKIP
+	b2sums = bc42c1560f87153bfa042efd006d06ff3dc5f5a205c9066801b243575735b3191b58c3d0c7ae461957791e3b35adce78f9f03af354f7f4af3fe3be1f87737cb7
+	b2sums = efe09cb738f35ac5e36742a06de97e764eb4246fd02c897f19b0cd2317eeac4120093e96bf487785b3b3528fe9aeffd477c7a5d82fa884bd9a8a5cab47ce54a9
+
+pkgname = rog-ally-evdevhook2

@@ -8,7 +8,14 @@ arch=('x86_64')
 url="https://github.com/v1993/evdevhook2"
 license=('GPL3')
 groups=()
-depends=('glib2' 'zlib' 'libudev.so' 'libevdev.so' 'libgee-0.8.so')
+depends=(
+    'glib2'
+    'zlib'
+    'libudev.so'
+    'libevdev.so'
+    'libgee-0.8.so'
+    'rog-ally-motion-evdev'
+)
 optdepends=('upower: battery status reporting')
 makedepends=('git' 'meson' 'vala')
 provides=("evdevhook2")
@@ -20,7 +27,7 @@ source=(
 )
 b2sums=(
     'SKIP'
-    '7a663f816ba47dba76016cff4f156ac3267c9d35c9a87b4e5443c1e380b100f0f962d58cd57bc972c2d94058a867bef6946f282f97d315c990d49a614a87e87e' # evdevhook2.service
+    'bc42c1560f87153bfa042efd006d06ff3dc5f5a205c9066801b243575735b3191b58c3d0c7ae461957791e3b35adce78f9f03af354f7f4af3fe3be1f87737cb7' # evdevhook2.service
     'efe09cb738f35ac5e36742a06de97e764eb4246fd02c897f19b0cd2317eeac4120093e96bf487785b3b3528fe9aeffd477c7a5d82fa884bd9a8a5cab47ce54a9' # rog-ally-bmi323.patch
 )
 
