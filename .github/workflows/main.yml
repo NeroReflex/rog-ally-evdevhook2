@@ -50,6 +50,10 @@ jobs:
       - name: Install dependencies
         run: |
           pacman -Syu --noconfirm $(sed -n -e 's/^[[:space:]]*\(make\)\?depends\(_x86_64\)\? = \([[:alnum:][:punct:]]*\)[[:space:]]*$/\3/p' /home/build/pkg/.SRCINFO)
+      - name: Customize makepkg.conf
+        run: |
+          sed -i -e 's/BUILDENV=(!distcc color !ccache check !sign)/BUILDENV=(!distcc color !ccache !check !sign)/g' /etc/makepkg.conf
+          sed -i -e 's/-march=x86-64 -mtune=generic/-march=znver4/g' /etc/makepkg.conf
       - name: Build Package
         id: build-package
         shell: bash
