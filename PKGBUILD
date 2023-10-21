@@ -1,6 +1,6 @@
 # Maintainer: Valeri Ochinski <v19930312@gmail.com>
 
-pkgname=evdevhook2-git
+pkgname=rog-ally-evdevhook2
 pkgver=1.0.1.r1.g3635e5a
 pkgrel=1
 pkgdesc="Cemuhook UDP server for devices with modern Linux drivers"
@@ -11,8 +11,8 @@ groups=()
 depends=('glib2' 'zlib' 'libudev.so' 'libevdev.so' 'libgee-0.8.so')
 optdepends=('upower: battery status reporting')
 makedepends=('git' 'meson' 'vala')
-provides=("${pkgname%-git}")
-conflicts=("${pkgname%-git}")
+provides=("evdevhook2")
+conflicts=("evdevhook2")
 source=(
     'evdevhook2::git+https://github.com/v1993/evdevhook2.git'
     'evdevhook2.service'
@@ -25,7 +25,7 @@ b2sums=(
 )
 
 pkgver() {
-	cd "$srcdir/${pkgname%-git}"
+	cd "$srcdir/evdevhook2"
 	git describe --long --tags --abbrev=7 | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
@@ -34,11 +34,11 @@ prepare() {
     patch -Np1 -i ../rog-ally-bmi323.patch
 
     cd ..
-	meson subprojects download --sourcedir="$srcdir/${pkgname%-git}"
+	meson subprojects download --sourcedir="$srcdir/evdevhook2"
 }
 
 build() {
-	arch-meson "$srcdir/${pkgname%-git}" build
+	arch-meson "$srcdir/evdevhook2" build
 	meson compile -C build
 }
 
