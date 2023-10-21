@@ -1,0 +1,24 @@
+From 4a267ae2cc64b3ee3d760430dfeb522ac890ebd3 Mon Sep 17 00:00:00 2001
+From: KWottrich <kenny.wottrich@gmail.com>
+Date: Fri, 22 Sep 2023 09:50:22 -0500
+Subject: [PATCH] Define Ally sensor in DeviceTypes.ini
+
+---
+ src/DeviceTypes.ini | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/src/DeviceTypes.ini b/src/DeviceTypes.ini
+index 0d77c9f..32643ac 100644
+--- a/src/DeviceTypes.ini
++++ b/src/DeviceTypes.ini
+@@ -47,3 +47,10 @@ GyroMapping=x-y-z-
+ [054c:0ce6]
+ AccelMapping=x-y-z-
+ GyroMapping=x+y-z-
++
++# ### ASUS ###
++
++# ROG Ally
++[108c:0323]
++AccelMapping=x-y-z-
++GyroMapping=x+y-z-
