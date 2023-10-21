@@ -47,9 +47,6 @@ jobs:
         run: |
           su build bash -c "cd /home/build/pkg && makepkg --printsrcinfo > /home/build/pkg/.SRCINFO"
           sed -i 's/	depends = rog-ally-motion-evdev\n//g' /home/build/pkg/.SRCINFO
-      - name: Install dependencies
-        run: |
-          pacman -Syu --noconfirm $(sed -n -e 's/^[[:space:]]*\(make\)\?depends\(_x86_64\)\? = \([[:alnum:][:punct:]]*\)[[:space:]]*$/\3/p' /home/build/pkg/.SRCINFO)
       - name: Build Package
         id: build-package
         shell: bash
